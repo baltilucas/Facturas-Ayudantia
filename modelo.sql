@@ -17,7 +17,7 @@ CREATE TABLE factura(
 );
 
 CREATE TABLE producto(
-    idProducto INT PRIMARY KEY AUTO_INCREMENT,.
+    idProducto INT PRIMARY KEY AUTO_INCREMENT,
     nombreProducto varchar(100),
     precio INT not null,
     idDistribuidor INT,
