@@ -42,5 +42,30 @@ Al crearlo en la instancia no se configura automaticamente el usuario _root_, de
 - Seleccionar una base de datos: `USE <nombreDB>;`
 - Crear una base de datos: `CREATE DATABASE <nombreDB>;`
 - Crear una tabla cuando se usa una base de datos: `CREATE TABLE <Nombre>;`
+- Consulta general a una tabla `SELECT * FROM <NombreTabla>;`
+- Ingresar registro a tabla `INSERT INTO <NombreTabla>(<Atributo1,Atributo2>) VALUES (ValorAtr1, ValorAtr2),(ValorAtr1, ValorAtr2);`
+- Borrar registro `DELETE FROM <NombreTabla> WHERE <condicion>;`
+
+## Instructivo implementación Modelo Factura
+
+Para aplicar el modelo en este repositorio se requiere tener MySql o MariaDB instalado, desde la consola del motor se debe correr 
+
+```
+CREATE DATABASE facturas;
+```
+
+Y desde la consola de comandos ubicada en la carpeta, aplicar 
+
+```
+mysql -u root -p facturas < modelo.sql
+```
+
+Lo que ingresará el modelo en la base de datos creada.
 
 
+Finalmente para poblar se puede utilizar un método como el explicado en clases, utilizando excel como se muestra en el archivo de este mismo repositorio, copiando y pegando en la consola del motor o en el workbench de coincidir.
+
+
+Como implementación menos directa pero más personalizable se puede poblar las tablas maestras con cursores, se adjunta un ejemplo de la implementación en python, para aplicarlo se utilizó la versión 3.11 y con las librerias presentes en el archivo _requirements.txt_, se debe configurar la contraseña en el objeto conexion.
+
+Finalmente para poblar la tabla transaccional existen muchos enfoques, pero uno muy común para archivos de muestra es generar una consulta que además inserte tomando datos al azar, de esta manera se puede uno assegurar de tener un set de datos que permitan generar pruebas y consultas complejas.
