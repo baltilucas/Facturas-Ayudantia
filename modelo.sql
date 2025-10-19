@@ -4,7 +4,6 @@ CREATE TABLE cliente(
     correo varchar(200)
 );
 
-
 CREATE TABLE distribuidor(
     idDistribuidor INT PRIMARY KEY AUTO_INCREMENT,
     nombreDistribuidor varchar(100)
@@ -13,6 +12,7 @@ CREATE TABLE distribuidor(
 CREATE TABLE factura(
     idFactura INT PRIMARY KEY AUTO_INCREMENT,
     idCliente INT,
+    fecha timestamp,
     FOREIGN KEY (idCliente) REFERENCES cliente(idCliente)
 );
 
@@ -28,7 +28,7 @@ CREATE TABLE venta(
     idFactura INT,
     idProducto INT,
     cantidad INT,
-    descuento float,
+    descuento FLOAT,
     PRIMARY KEY (idFactura, idProducto),
     FOREIGN KEY (idFactura) REFERENCES factura(idFactura),
     FOREIGN KEY (idProducto) REFERENCES producto(idProducto)
